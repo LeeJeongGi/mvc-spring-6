@@ -31,5 +31,15 @@ public class MessageSourceTest {
         assertThatThrownBy(() -> ms.getMessage("no_code", null, null))
                 .isInstanceOf(NoSuchMessageException.class);
     }
-    
+
+    @Test
+    public void defaultMessage() {
+        //given
+        String message = ms.getMessage("no_code", null, "기본 메세지", null);
+        //when
+
+        //then
+        assertThat(message).isEqualTo("기본 메세지");
+    }
+
 }
